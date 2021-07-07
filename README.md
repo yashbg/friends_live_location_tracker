@@ -1,4 +1,4 @@
-# friends_live_location_tracking
+# friends_live_location_tracker
 
 A new Flutter project.
 

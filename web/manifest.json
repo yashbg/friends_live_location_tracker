@@ -1,6 +1,6 @@
 {
-    "name": "friends_live_location_tracking",
-    "short_name": "friends_live_location_tracking",
+    "name": "friends_live_location_tracker",
+    "short_name": "friends_live_location_tracker",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
