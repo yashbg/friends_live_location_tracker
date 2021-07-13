@@ -16,16 +16,17 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.red[600],
       ),
       body: Center(
-        child: Icon(
-          Icons.airport_shuttle,
-          color: Colors.lightBlue,
-          size: 50.0,
+        child: ElevatedButton.icon(
+          onPressed: () {},
+          icon: Icon(
+            Icons.mail,
+          ),
+          label: Text('mail me'),
+          style: ElevatedButton.styleFrom(primary: Colors.amber),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print('Clicked');
-        },
+        onPressed: () {},
         child: Text('click'),
         backgroundColor: Colors.red[600],
       ),
