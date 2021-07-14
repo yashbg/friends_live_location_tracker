@@ -4,8 +4,15 @@ void main() => runApp(MaterialApp(
       home: Home(),
     ));
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int level = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +23,15 @@ class Home extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.grey[850],
         elevation: 0.0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            level += 1;
+          });
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.grey[800],
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
@@ -51,7 +67,7 @@ class Home extends StatelessWidget {
             ),
             SizedBox(height: 30.0),
             Text(
-              'AGE',
+              'LEVEL',
               style: TextStyle(
                 color: Colors.grey,
                 letterSpacing: 2.0,
@@ -59,7 +75,7 @@ class Home extends StatelessWidget {
             ),
             SizedBox(height: 10.0),
             Text(
-              '20',
+              '$level',
               style: TextStyle(
                 color: Colors.amberAccent[200],
                 letterSpacing: 2.0,
