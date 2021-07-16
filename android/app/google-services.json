@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "993871669786",
+    "project_id": "friends-live-location-tracker",
+    "storage_bucket": "friends-live-location-tracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:993871669786:android:80689f5d8c1bb73c60bfa3",
+        "android_client_info": {
+          "package_name": "com.example.friends_live_location_tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "993871669786-cpthpo1dmkilr9qpgvlljqp3nc36vi6u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.friends_live_location_tracker",
+            "certificate_hash": "c75ec623696f8f6b8dbaa2311561d655b05b7bcf"
+          }
+        },
+        {
+          "client_id": "993871669786-lsvrrec7jc9egk3944tk9q09lb3200br.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVFUNx79kQ1rQ4W-G_zf5ezjPNOPkuZtk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "993871669786-lsvrrec7jc9egk3944tk9q09lb3200br.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
