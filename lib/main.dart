@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
-import 'Start.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() => runApp(MyApp());
+import 'login.dart';
+import 'start.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -11,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(primaryColor: Colors.orange),
       debugShowCheckedModeBanner: false,
-      home: Start(),
+      home: Login(),
     );
   }
 }
