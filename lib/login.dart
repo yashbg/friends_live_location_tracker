@@ -81,15 +81,29 @@ class _LoginState extends State<Login> {
                           onSaved: (input) => _password = input,
                         ),
                       ),
+                      SizedBox(height: 20.0),
                       ElevatedButton(
                         onPressed: () {},
-                        child: Text(
-                          'LOGIN',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(50.0, 10.0, 50.0, 10.0),
+                          child: Text(
+                            'LOGIN',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
+                        ),
+                        style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                          ),
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colors.orange),
                         ),
                       ),
                     ],
