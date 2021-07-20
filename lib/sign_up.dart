@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'home_page.dart';
+import 'login.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -66,6 +67,13 @@ class _SignUpState extends State<SignUp> {
           ],
         );
       },
+    );
+  }
+
+  navigateToLogin() async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Login()),
     );
   }
 
@@ -159,6 +167,11 @@ class _SignUpState extends State<SignUp> {
                     ],
                   ),
                 ),
+              ),
+              SizedBox(height: 10.0),
+              GestureDetector(
+                child: Text('Already had an Account?'),
+                onTap: navigateToLogin,
               ),
             ],
           ),
