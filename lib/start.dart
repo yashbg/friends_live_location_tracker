@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 import 'login.dart';
+import 'sign_up.dart';
 
 class Start extends StatefulWidget {
   const Start({Key? key}) : super(key: key);
@@ -15,6 +16,13 @@ class _StartState extends State<Start> {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => Login()),
+    );
+  }
+
+  navigateToRegister() async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SignUp()),
     );
   }
 
@@ -86,7 +94,7 @@ class _StartState extends State<Start> {
                 ),
                 SizedBox(width: 20.0),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: navigateToRegister,
                   child: Padding(
                     padding: EdgeInsets.only(left: 15.0, right: 15.0),
                     child: Text(
