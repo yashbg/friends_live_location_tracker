@@ -14,7 +14,7 @@ class _LoginState extends State<Login> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  String? _email, _password;
+  late String _email, _password;
 
   checkAuthentication() async {
     _auth.authStateChanges().listen((user) {
@@ -31,6 +31,38 @@ class _LoginState extends State<Login> {
       super.initState();
       this.checkAuthentication();
     }
+  }
+
+  login() async {
+    if (_formKey.currentState != null && _formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      try {
+        UserCredential user = await _auth.signInWithEmailAndPassword(
+            email: _email, password: _password);
+      } catch (e) {
+        showError(e.toString());
+      }
+    }
+  }
+
+  showError(String errorMessage) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('ERROR'),
+          content: Text(errorMessage),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('OK'),
+            )
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -63,7 +95,7 @@ class _LoginState extends State<Login> {
                             labelText: 'Email',
                             prefixIcon: Icon(Icons.email),
                           ),
-                          onSaved: (input) => _email = input,
+                          onSaved: (input) => _email = input!,
                         ),
                       ),
                       Container(
@@ -78,7 +110,7 @@ class _LoginState extends State<Login> {
                             prefixIcon: Icon(Icons.lock),
                           ),
                           obscureText: true,
-                          onSaved: (input) => _password = input,
+                          onSaved: (input) => _password = input!,
                         ),
                       ),
                       SizedBox(height: 20.0),
