@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     height: 400,
                     child: Image(
-                      image: AssetImage('assets/welcome'),
+                      image: AssetImage('assets/welcome.jpg'),
                       fit: BoxFit.contain,
                     ),
                   ),
