@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
+import 'login.dart';
+
 class Start extends StatefulWidget {
   const Start({Key? key}) : super(key: key);
 
@@ -9,6 +11,13 @@ class Start extends StatefulWidget {
 }
 
 class _StartState extends State<Start> {
+  navigateToLogin() async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Login()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +62,7 @@ class _StartState extends State<Start> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: navigateToLogin,
                   child: Padding(
                     padding: EdgeInsets.only(left: 15.0, right: 15.0),
                     child: Text(
