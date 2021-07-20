@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'home_page.dart';
+import 'sign_up.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -68,6 +69,13 @@ class _LoginState extends State<Login> {
     );
   }
 
+  navigateToSignUp() async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SignUp()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,7 +130,7 @@ class _LoginState extends State<Login> {
                         child: Padding(
                           padding: EdgeInsets.fromLTRB(50.0, 10.0, 50.0, 10.0),
                           child: Text(
-                            'LOGIN',
+                            'Sign In',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 20.0,
@@ -140,6 +148,11 @@ class _LoginState extends State<Login> {
                           backgroundColor:
                               MaterialStateProperty.all<Color>(Colors.orange),
                         ),
+                      ),
+                      SizedBox(height: 10.0),
+                      GestureDetector(
+                        child: Text('Create an Account?'),
+                        onTap: navigateToSignUp,
                       ),
                     ],
                   ),
