@@ -56,6 +56,7 @@ class _HomePageState extends State<HomePage> {
             ? CircularProgressIndicator()
             : Column(
                 children: <Widget>[
+                  SizedBox(height: 35.0),
                   Container(
                     height: 400,
                     child: Image(
@@ -72,6 +73,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
+                  SizedBox(height: 40.0),
                   ElevatedButton(
                     onPressed: signOut,
                     child: Padding(
