@@ -12,8 +12,10 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+
   late User user;
   bool isLoggedIn = false;
+
   checkAuthentication() async {
     _auth.authStateChanges().listen((user) {
       if (user == null) {

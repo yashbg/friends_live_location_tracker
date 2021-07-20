@@ -3,21 +3,21 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'home_page.dart';
 
-class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+class SignUp extends StatefulWidget {
+  const SignUp({Key? key}) : super(key: key);
 
   @override
-  _LoginState createState() => _LoginState();
+  _SignUpState createState() => _SignUpState();
 }
 
-class _LoginState extends State<Login> {
+class _SignUpState extends State<SignUp> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  late String _email, _password;
+  late String _email, _password, _name;
 
   checkAuthentication() async {
-    _auth.authStateChanges().listen((user) {
+    _auth.authStateChanges().listen((user) async {
       if (user != null) {
         Navigator.push(
           context,
@@ -25,23 +25,24 @@ class _LoginState extends State<Login> {
         );
       }
     });
-
-    @override
-    void initState() {
-      super.initState();
-      this.checkAuthentication();
-    }
   }
 
-  login() async {
+  @override
+  void initState() {
+    super.initState();
+    this.checkAuthentication();
+  }
+
+  signUp() async {
     if (_formKey.currentState != null && _formKey.currentState!.validate()) {
       _formKey.currentState!.save();
 
       try {
-        UserCredential user = await _auth.signInWithEmailAndPassword(
+        UserCredential user = await _auth.createUserWithEmailAndPassword(
           email: _email,
           password: _password,
         );
+        _auth.currentUser!.updateDisplayName(_name);
       } catch (e) {
         showError(e.toString());
       }
@@ -91,6 +92,20 @@ class _LoginState extends State<Login> {
                         child: TextFormField(
                           validator: (input) {
                             if (input == null || input.isEmpty) {
+                              return 'Enter Name';
+                            }
+                          },
+                          decoration: InputDecoration(
+                            labelText: 'Name',
+                            prefixIcon: Icon(Icons.person),
+                          ),
+                          onSaved: (input) => _name = input!,
+                        ),
+                      ),
+                      Container(
+                        child: TextFormField(
+                          validator: (input) {
+                            if (input == null || input.isEmpty) {
                               return 'Enter Email';
                             }
                           },
@@ -118,11 +133,11 @@ class _LoginState extends State<Login> {
                       ),
                       SizedBox(height: 20.0),
                       ElevatedButton(
-                        onPressed: login,
+                        onPressed: signUp,
                         child: Padding(
                           padding: EdgeInsets.fromLTRB(50.0, 10.0, 50.0, 10.0),
                           child: Text(
-                            'LOGIN',
+                            'Sign Up',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 20.0,
